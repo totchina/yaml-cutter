@@ -1,0 +1,19 @@
+{
+  "name": "yaml-cutter",
+  "version": "0.0.1",
+  "description": "Allows to edit YAML files in flexible ways",
+  "main": "dist/yaml-cutter.js",
+  "scripts": {
+    "test": "bin/spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevgo/yaml-cutter.git"
+  },
+  "author": "Kevin Goslar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevgo/yaml-cutter/issues"
+  },
+  "homepage": "https://github.com/kevgo/yaml-cutter#readme"
+}
