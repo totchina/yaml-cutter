@@ -15,5 +15,7 @@
   "bugs": {
     "url": "https://github.com/kevgo/yaml-cutter/issues"
   },
-  "homepage": "https://github.com/kevgo/yaml-cutter#readme"
+  "homepage": "https://github.com/kevgo/yaml-cutter#readme",
+  "devDependencies": {
+  }
 }
