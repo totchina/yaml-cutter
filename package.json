@@ -2,7 +2,7 @@
   "name": "yaml-cutter",
   "version": "0.0.1",
   "description": "Allows to edit YAML files in flexible ways",
-  "main": "dist/yaml-cutter.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "bin/spec"
   },
