@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
-cucumber-js --tags ~@todo "$@"
+bin/tests
+bin/cuke
