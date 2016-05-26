@@ -17,5 +17,6 @@
   },
   "homepage": "https://github.com/kevgo/yaml-cutter#readme",
   "devDependencies": {
+    "o-tools": "0.3.2"
   }
 }
