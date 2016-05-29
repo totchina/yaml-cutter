@@ -4,7 +4,7 @@ Feature: adding keys
   I want my framework to be able to programmatically add keys to existing YAML files
   So that my framework can seamlessly add features to existing software.
 
-  - call 'yaml-cutter.add-key yaml-path, 'foo/bar', {...}'
+  - call "yaml-cutter.add-key file: [file path], root: [root node], value: [value to insert]"
     to add the given key at the given position into the given YAML file
 
 
