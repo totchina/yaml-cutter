@@ -1,21 +1,13 @@
 {
   "name": "yaml-cutter",
   "version": "0.0.1",
-  "description": "Allows to edit YAML files in flexible ways",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "bin/spec"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kevgo/yaml-cutter.git"
-  },
   "author": "Kevin Goslar",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kevgo/yaml-cutter/issues"
+  "dependencies": {
+    "js-yaml": "3.6.1",
+    "nitroglycerin": "1.1.1",
+    "prelude-ls": "1.1.2"
   },
-  "homepage": "https://github.com/kevgo/yaml-cutter#readme",
+  "description": "Allows to edit YAML files in flexible ways",
   "devDependencies": {
     "chai": "3.5.0",
     "cucumber": "0.10.2",
@@ -28,9 +20,14 @@
     "o-tools": "0.4.0",
     "o-tools-livescript": "1.0.3"
   },
-  "dependencies": {
-    "js-yaml": "3.6.1",
-    "nitroglycerin": "1.1.1",
-    "prelude-ls": "1.1.2"
+  "homepage": "https://github.com/kevgo/yaml-cutter",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevgo/yaml-cutter.git"
+  },
+  "scripts": {
+    "test": "bin/spec"
   }
 }
