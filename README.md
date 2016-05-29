@@ -1,6 +1,9 @@
 # Yaml Cutter
 > non-intrusive editing of Yaml files
 
+[![CircleCI](https://circleci.com/gh/kevgo/yaml-cutter.svg?style=shield)](https://circleci.com/gh/kevgo/yaml-cutter)
+
+
 This npm module allows fine-grained programmatic editing
 of YAML files.
 It preserves the file structure,
