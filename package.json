@@ -10,15 +10,15 @@
   "description": "Allows to edit YAML files in flexible ways",
   "devDependencies": {
     "chai": "3.5.0",
-    "cucumber": "0.10.2",
+    "cucumber": "0.10.3",
     "dependency-lint": "4.0.1",
-    "jsdiff-console": "1.4.2",
+    "jsdiff-console": "2.1.0",
     "livescript": "1.5.0",
     "mkdirp": "0.5.1",
-    "mocha": "2.5.2",
+    "mocha": "2.5.3",
     "mocha-circleci-reporter": "0.0.1",
     "o-tools": "0.4.0",
-    "o-tools-livescript": "1.0.3"
+    "o-tools-livescript": "1.0.4"
   },
   "homepage": "https://github.com/kevgo/yaml-cutter",
   "license": "ISC",

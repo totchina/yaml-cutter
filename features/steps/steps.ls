@@ -15,10 +15,9 @@ module.exports = ->
 
 
   @When /^running:$/, (code, done) ->
-    js = livescript.compile code, bare: yes, header: no
-    eval js
+    eval livescript.compile(code, bare: yes, header: no)
 
 
-  @Then /^this file ends up with the content:$/, (expected-content, done) ->
-    actual-content = fs.read-file-sync(@file-name).to-string!
-    jsdiff-console actual-content, expected-content, done
+  @Then /^this file ends up with the content:$/, (expected-content) ->
+    jsdiff-console fs.read-file-sync(@file-name).to-string!,
+                   expected-content
