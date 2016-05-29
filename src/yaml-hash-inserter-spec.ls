@@ -24,7 +24,7 @@ describe 'YamlHashInserter', ->
   describe 'insert', (...) ->
 
     it 'inserts the given value at the given yaml path', (done) ->
-      @editor.insert 'services/users', location: './users'
+      @editor.insert 'services.users', location: './users'
       expected-text = """
         name: Example application
         description: An example app
@@ -172,5 +172,4 @@ describe 'YamlHashInserter', ->
 
     it 'returns an array of key elements', ->
       expect(@editor.key-segments 'beta').to.eql ['beta']
-      expect(@editor.key-segments '/beta').to.eql ['beta']
-      expect(@editor.key-segments 'alpha/beta/gamma').to.eql ['alpha', 'beta', 'gamma']
+      expect(@editor.key-segments 'alpha.beta.gamma').to.eql ['alpha', 'beta', 'gamma']

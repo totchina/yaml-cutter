@@ -96,7 +96,7 @@ class YamlHashInserter
 
   # Splits the given key into its segments
   key-segments: (key) ->
-    key.split '/'  |>  compact
+    key.split '.'  |>  compact
 
 
 

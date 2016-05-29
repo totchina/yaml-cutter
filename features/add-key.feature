@@ -23,7 +23,7 @@ Feature: adding keys
       """
     When running:
     """
-    yaml-cutter.insert-hash file: 'tmp/foo.yaml', root: 'services/users', value: {location: './users'}, done
+    yaml-cutter.insert-hash file: 'tmp/foo.yaml', root: 'services.users', value: {location: './users'}, done
     """
     Then this file ends up with the content:
       """
