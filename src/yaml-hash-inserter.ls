@@ -28,11 +28,19 @@ class YamlHashInserter
 
   # Inserts the given hash value under the given root
   # Creates parent nodes if necessary
-  insert: (yaml-path, value) ->
+  #
+  # params:
+  #   - root: the parent node under which the new key should be inserted.
+  #   - key: the key to insert
+  #   - value: the value to insert
+  insert-hash: ({root, key, value}) ->
 
     # create all parent nodes and move to the immediate parent
-    for key-segment in @key-segments yaml-path
+    for key-segment in @key-segments root
       @insert-branch-key key-segment
+
+    # insert the key
+    @insert-branch-key key
 
     # insert the value
     @insert-leaf value

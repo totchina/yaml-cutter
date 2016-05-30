@@ -24,7 +24,7 @@ describe 'YamlHashInserter', ->
   describe 'insert', (...) ->
 
     it 'inserts the given value at the given yaml path', (done) ->
-      @editor.insert 'services.users', location: './users'
+      @editor.insert-hash root: 'services', key: 'users', value: location: './users'
       expected-text = """
         name: Example application
         description: An example app
