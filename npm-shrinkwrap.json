@@ -126,7 +126,7 @@
     },
     "cucumber-snippets-livescript": {
       "version": "1.0.1",
-      "from": "cucumber-snippets-livescript@latest",
+      "from": "cucumber-snippets-livescript@1.0.1",
       "resolved": "https://registry.npmjs.org/cucumber-snippets-livescript/-/cucumber-snippets-livescript-1.0.1.tgz"
     },
     "d": {
@@ -441,33 +441,6 @@
       "version": "0.2.2",
       "from": "next-tick@>=0.2.2 <0.3.0",
       "resolved": "https://registry.npmjs.org/next-tick/-/next-tick-0.2.2.tgz"
-    },
-    "nitroglycerin": {
-      "version": "1.1.1",
-      "from": "nitroglycerin@1.1.1",
-      "resolved": "https://registry.npmjs.org/nitroglycerin/-/nitroglycerin-1.1.1.tgz",
-      "dependencies": {
-        "d": {
-          "version": "0.1.1",
-          "from": "d@>=0.1.1 <0.2.0",
-          "resolved": "https://registry.npmjs.org/d/-/d-0.1.1.tgz"
-        },
-        "es5-ext": {
-          "version": "0.10.11",
-          "from": "es5-ext@>=0.10.8 <0.11.0",
-          "resolved": "https://registry.npmjs.org/es5-ext/-/es5-ext-0.10.11.tgz"
-        },
-        "es6-iterator": {
-          "version": "2.0.0",
-          "from": "es6-iterator@>=2.0.0 <3.0.0",
-          "resolved": "https://registry.npmjs.org/es6-iterator/-/es6-iterator-2.0.0.tgz"
-        },
-        "es6-symbol": {
-          "version": "3.0.2",
-          "from": "es6-symbol@>=3.0.2 <3.1.0",
-          "resolved": "https://registry.npmjs.org/es6-symbol/-/es6-symbol-3.0.2.tgz"
-        }
-      }
     },
     "o-tools": {
       "version": "0.4.0",

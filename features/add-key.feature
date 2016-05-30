@@ -98,3 +98,14 @@ Feature: adding keys
           location: ./web-server
       """
 
+
+  Scenario: trying to add something to a non-existing file
+    When running:
+      """
+      yaml-cutter.insert-hash file: 'zonk.yml', root: 'services', key: 'web', value: location: './web-server', done
+      """
+    Then it returns the error:
+      """
+      Cannot open the given YAML file 'zonk.yml'! ENOENT: no such file or directory, open 'zonk.yml'
+      """
+
