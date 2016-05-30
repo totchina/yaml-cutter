@@ -20,6 +20,10 @@
     "o-tools": "0.4.0",
     "o-tools-livescript": "1.0.4"
   },
+  "files": [
+    "dist",
+    "npm-shrinkwrap.json"
+  ],
   "homepage": "https://github.com/kevgo/yaml-cutter",
   "license": "ISC",
   "main": "dist/index.js",
