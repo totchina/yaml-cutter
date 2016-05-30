@@ -18,12 +18,14 @@ describe 'YamlHashInserter', ->
           location: ./dashboard
         web:
           location: ./web-server
+
+      modules:
       """
 
 
   describe 'insert', (...) ->
 
-    it 'inserts the given value at the given yaml path', (done) ->
+    it 'inserts the given value at the given yaml path', ->
       @editor.insert-hash root: 'services', key: 'users', value: location: './users'
       expected-text = """
         name: Example application
@@ -37,8 +39,31 @@ describe 'YamlHashInserter', ->
             location: ./users
           web:
             location: ./web-server
+
+        modules:
         """
-      jsdiff-console @editor.to-string!, expected-text, done
+      jsdiff-console @editor.to-string!, expected-text
+
+    context 'the parent node has no children', (...) ->
+
+      it 'inserts the given value', (done) ->
+        @editor.insert-hash root: 'modules', key: 'users', value: {location: './users'}
+        expected-text = """
+          name: Example application
+          description: An example app
+          version: 1.0
+
+          services:
+            dashboard:
+              location: ./dashboard
+            web:
+              location: ./web-server
+
+          modules:
+            users:
+              location: ./users
+          """
+        jsdiff-console @editor.to-string!, expected-text, done
 
 
   describe 'go-to-child', ->
@@ -89,6 +114,10 @@ describe 'YamlHashInserter', ->
     it 'returns false if the given child does not exist', ->
       expect(@editor.has-child 'zonk').to.be.false
 
+    it 'returns false if the current node has no children', ->
+      @editor.go-to-child 'modules'
+      expect(@editor.has-child 'nope').to.be.false
+
 
   describe 'insert-line', (...) ->
 
@@ -110,6 +139,8 @@ describe 'YamlHashInserter', ->
               location: ./dashboard
             web:
               location: ./web-server
+
+          modules:
           """
         jsdiff-console @editor.to-string!, expected-text, done
 
@@ -134,6 +165,8 @@ describe 'YamlHashInserter', ->
             users:
             web:
               location: ./web-server
+
+          modules:
           """
         jsdiff-console @editor.to-string!, expected-text, done
 
@@ -164,6 +197,8 @@ describe 'YamlHashInserter', ->
             location: ./users
           web:
             location: ./web-server
+
+        modules:
         """
       jsdiff-console @editor.to-string!, expected-text, done
 

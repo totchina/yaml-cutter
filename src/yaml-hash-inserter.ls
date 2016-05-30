@@ -26,7 +26,7 @@ class YamlHashInserter
     @current-json-children = @data
 
 
-  # Inserts the given hash value under the given root
+  # Inserts the given data as the given node
   # Creates parent nodes if necessary
   #
   # params:
@@ -37,7 +37,7 @@ class YamlHashInserter
 
     # create all parent nodes and move to the immediate parent
     for key-segment in @key-segments root
-      @insert-branch-key key-segment
+      @go-to-child key-segment
 
     # insert the key
     @insert-branch-key key
@@ -71,7 +71,7 @@ class YamlHashInserter
 
   # Returns whether the YAML file has the given node as a child of the current node
   has-child: (child-name) ->
-    !!@current-json-children[child-name]
+    !!@current-json-children?[child-name]
 
 
   # Inserts the branch key segment as a child of the current line
@@ -79,12 +79,16 @@ class YamlHashInserter
     if @has-child key-segment
       @go-to-child key-segment
     else
-      child-names = Object.keys @current-json-children
+      child-names = Object.keys(@current-json-children ? [])
       child-names.push key-segment
       child-names.sort!
       parent-index = child-names.index-of(key-segment) + 1
       parent = child-names[parent-index]
-      @go-to-child parent
+      if parent
+        @go-to-child parent
+      else
+        @cursor-line += 1
+        @indent-cursor!
       @insert-line "#{key-segment}:"
 
 
