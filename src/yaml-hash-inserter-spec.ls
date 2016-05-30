@@ -44,6 +44,7 @@ describe 'YamlHashInserter', ->
         """
       jsdiff-console @editor.to-string!, expected-text
 
+
     context 'the parent node has no children', (...) ->
 
       it 'inserts the given value', (done) ->
@@ -62,6 +63,28 @@ describe 'YamlHashInserter', ->
           modules:
             users:
               location: ./users
+          """
+        jsdiff-console @editor.to-string!, expected-text, done
+
+
+    context 'inserting as the last child', (...) ->
+
+      it 'inserts the given value', (done) ->
+        @editor.insert-hash root: 'services', key: 'zebra', value: {location: './zebra'}
+        expected-text = """
+          name: Example application
+          description: An example app
+          version: 1.0
+
+          services:
+            dashboard:
+              location: ./dashboard
+            web:
+              location: ./web-server
+            zebra:
+              location: ./zebra
+
+          modules:
           """
         jsdiff-console @editor.to-string!, expected-text, done
 
@@ -86,6 +109,20 @@ describe 'YamlHashInserter', ->
           web:
             location: './web-server'
         jsdiff-console @editor.current-json-children, expected, done
+
+
+  describe 'go-to-next-empty-line', (...) ->
+
+    it 'goes to the next empty line', ->
+      @editor.go-to-next-empty-line!
+      expect(@editor.cursor-line).to.equal 3
+      @editor.cursor-line += 1
+      @editor.go-to-next-empty-line!
+      expect(@editor.cursor-line).to.equal 9
+      @editor.cursor-line += 1
+      @editor.go-to-next-empty-line!
+      expect(@editor.cursor-line).to.equal 11
+
 
 
     context 'at branch node', (...) ->

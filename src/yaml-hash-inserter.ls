@@ -69,6 +69,11 @@ class YamlHashInserter
         return
 
 
+  go-to-next-empty-line: ->
+    while @lines[@cursor-line]?trim! isnt '' and @cursor-line < @lines.length
+      @cursor-line += 1
+
+
   # Returns whether the YAML file has the given node as a child of the current node
   has-child: (child-name) ->
     !!@current-json-children?[child-name]
@@ -87,7 +92,7 @@ class YamlHashInserter
       if parent
         @go-to-child parent
       else
-        @cursor-line += 1
+        @go-to-next-empty-line!
         @indent-cursor!
       @insert-line "#{key-segment}:"
 
