@@ -18,9 +18,9 @@ Feature: adding keys
       services:
       """
     When running:
-    """
-    yaml-cutter.insert-hash file: 'tmp/foo.yaml', root: 'services', key: 'users', value: location: './users', done
-    """
+      """
+      yaml-cutter.insert-hash file: 'tmp/foo.yaml', root: 'services', key: 'users', value: location: './users', done
+      """
     Then this file ends up with the content:
       """
       name: Example application
@@ -47,9 +47,9 @@ Feature: adding keys
           location: ./web-server
       """
     When running:
-    """
-    yaml-cutter.insert-hash file: 'tmp/foo.yaml', root: 'services', key: 'users', value: location: './users', done
-    """
+      """
+      yaml-cutter.insert-hash file: 'tmp/foo.yaml', root: 'services', key: 'users', value: location: './users', done
+      """
     Then this file ends up with the content:
       """
       name: Example application
@@ -80,9 +80,9 @@ Feature: adding keys
           location: ./users
       """
     When running:
-    """
-    yaml-cutter.insert-hash file: 'tmp/foo.yaml', root: 'services', key: 'web', value: location: './web-server', done
-    """
+      """
+      yaml-cutter.insert-hash file: 'tmp/foo.yaml', root: 'services', key: 'web', value: location: './web-server', done
+      """
     Then this file ends up with the content:
       """
       name: Example application

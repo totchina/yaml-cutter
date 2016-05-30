@@ -16,6 +16,7 @@ ignoreErrors:
   shouldBeDependency: []
   shouldBeDevDependency: []
   unused:
+    - cucumber-snippets-livescript
     - mocha-circleci-reporter
     - o-tools
     - o-tools-livescript
