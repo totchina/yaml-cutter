@@ -50,6 +50,10 @@ class YamlHashInserter
     @lines.join "\n"
 
 
+
+  ## Private
+
+
   # Moves the cursor to the child of the current line with the given name
   go-to-child: (child-name) ->
     indentation = if @cursor-line > 0
@@ -63,6 +67,11 @@ class YamlHashInserter
         @cursor-line = line-no
         @current-json-children = @current-json-children[child-name]
         return
+
+
+  # Returns whether the YAML file has the given node as a child of the current node
+  has-child: (child-name) ->
+    !!@current-json-children[child-name]
 
 
   # Inserts the branch key segment as a child of the current line
@@ -91,11 +100,6 @@ class YamlHashInserter
     @cursor-line += 1
     for key, value of hash
       @insert-line "#{@cursor-indentation}#{key}: #{value}"
-
-
-  # Returns whether the YAML file has the given node as a child of the current node
-  has-child: (child-name) ->
-    !!@current-json-children[child-name]
 
 
   indent-cursor: ->
