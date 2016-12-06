@@ -99,6 +99,39 @@ Feature: adding keys
       """
 
 
+  Scenario: adding a child to a deeply nested node
+    Given a file "tmp/nest.yaml" with content:
+      """
+      name: Example application
+      description: An example app
+      version: 1.0
+
+      services:
+        public:
+          dashboard:
+            location: ./dashboard
+        private:
+      """
+    When running:
+      """
+      yaml-cutter.insert-hash file: 'tmp/nest.yaml', root: 'services.private', key: 'web', value: location: './web-server', done
+      """
+    Then this file ends up with the content:
+      """
+      name: Example application
+      description: An example app
+      version: 1.0
+
+      services:
+        public:
+          dashboard:
+            location: ./dashboard
+        private:
+          web:
+            location: ./web-server
+      """
+
+
   Scenario: trying to add something to a non-existing file
     When running:
       """

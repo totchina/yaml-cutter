@@ -13,7 +13,8 @@ executedModules:
 
 ignoreErrors:
   missing: []
-  shouldBeDependency: []
+  shouldBeDependency:
+    - o-tools-livescript
   shouldBeDevDependency: []
   unused:
     - cucumber-snippets-livescript

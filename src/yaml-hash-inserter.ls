@@ -108,7 +108,7 @@ class YamlHashInserter
   insert-leaf: (hash) ->
     @cursor-line += 1
     for key, value of hash
-      @insert-line "#{@cursor-indentation}#{key}: #{value}"
+      @insert-line "  #{key}: #{value}"
 
 
   indent-cursor: ->
