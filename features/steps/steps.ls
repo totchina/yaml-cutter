@@ -1,5 +1,5 @@
 require! {
-  '../..' : yaml-cutter
+  '../../src' : yaml-cutter
   'chai' : {expect}
   'fs'
   'jsdiff-console'

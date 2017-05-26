@@ -132,6 +132,31 @@ Feature: adding keys
       """
 
 
+  Scenario: adding a child to the middle of a deeply nested node
+    Given a file "tmp/nest.yaml" with content:
+      """
+      name: Example application
+
+      services:
+        public:
+        private:
+      """
+    When running:
+      """
+      yaml-cutter.insert-hash file: 'tmp/nest.yaml', root: 'services.public', key: 'web', value: location: './web-server', done
+      """
+    Then this file ends up with the content:
+      """
+      name: Example application
+
+      services:
+        public:
+          web:
+            location: ./web-server
+        private:
+      """
+
+
   Scenario: trying to add something to a non-existing file
     When running:
       """

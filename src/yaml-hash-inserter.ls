@@ -25,6 +25,9 @@ class YamlHashInserter
     # the children of the current node
     @current-json-children = @data
 
+    # tracks if a newline was added
+    @newline-added = false
+
 
   # Inserts the given data as the given node
   # Creates parent nodes if necessary
@@ -66,6 +69,8 @@ class YamlHashInserter
         @indent-cursor! if @cursor-line isnt 0
         @cursor-line = line-no
         @current-json-children = @current-json-children[child-name]
+        if @current-json-children == null
+          @add-newline!
         return
 
 
@@ -94,13 +99,18 @@ class YamlHashInserter
       else
         @go-to-next-empty-line!
         @indent-cursor!
+
       @insert-line "#{key-segment}:"
 
 
   # Inserts the given text with the current indentation
   # as a new line at the cursor position
   insert-line: (text) ->
-    @lines.splice @cursor-line, 0, "#{@cursor-indentation}#{text}"
+    if @newline-added
+      @newline-added = false
+      @lines[@cursor-line] = "#{@cursor-indentation}#{text}"
+    else
+      @lines.splice @cursor-line, 0, "#{@cursor-indentation}#{text}"
 
 
   # Inserts the given value as a leaf value
@@ -118,6 +128,11 @@ class YamlHashInserter
   # Splits the given key into its segments
   key-segments: (key) ->
     key.split '.'  |>  compact
+
+
+  add-newline: ->
+    @newline-added = true
+    @lines.splice (@cursor-line + 1), 0, ''
 
 
 
